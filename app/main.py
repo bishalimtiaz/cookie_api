@@ -1,8 +1,5 @@
 from fastapi import FastAPI
+from app import api
 
 app = FastAPI()
-
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+app.include_router(api.api_router)
