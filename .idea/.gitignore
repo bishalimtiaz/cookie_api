@@ -1,4 +1,6 @@
-# Default ignored files
-/shelf/
-/workspace.xml
+/misc.xml
 /cookie_api.iml
+/modules.xml
+/vcs.xml
+/inspectionProfiles
+/workspace.xml
