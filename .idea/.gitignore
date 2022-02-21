@@ -4,4 +4,4 @@
 /vcs.xml
 /inspectionProfiles
 /workspace.xml
-../app/.env
+app/.env
