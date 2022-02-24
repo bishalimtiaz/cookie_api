@@ -1,1 +1,1 @@
-from user_role_model import UserRole
+from app.models.user_role_model import UserRole

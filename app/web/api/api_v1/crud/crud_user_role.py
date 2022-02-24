@@ -5,3 +5,6 @@ from app.models import UserRole
 
 class CRUDUserROle(CRUDBase[UserRole, UserRoleCreate, UserRoleUpdate]):
     pass
+
+
+user_role = CRUDUserROle(UserRole)

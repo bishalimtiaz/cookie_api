@@ -19,8 +19,8 @@ def get_settings():
 
 
 @app.on_event("startup")
-def on_startup():
-    asyncio.run(init_models())
+async def on_startup():
+    await init_models()
 
 
 @app.get("/info")

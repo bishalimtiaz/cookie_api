@@ -2,7 +2,7 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-DATABASE_URL = 'mysql+mysqldb://root:root@127.0.0.1:3306/cookie_db'
+DATABASE_URL = 'mysql+aiomysql://root:root@127.0.0.1:3306/cookie_db'
 
 '''
 The `echo` flag is a shortcut to setting up SQLAlchemy logging, 
@@ -32,7 +32,11 @@ engine = create_async_engine(
 )
 
 async_session = sessionmaker(
-    engine, expire_on_commit=False, class_=AsyncSession,
+    engine,
+    expire_on_commit=False,
+    class_=AsyncSession,
+    autocommit=False,
+    autoflush=False,
 )
 
 
