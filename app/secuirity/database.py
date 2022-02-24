@@ -1,5 +1,5 @@
 # dialect+driver://username:password@host:port/database
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 DATABASE_URL = 'mysql+mysqldb://root:root@127.0.0.1:3306/cookie_db'
@@ -25,23 +25,25 @@ The new base class will be given a metaclass that produces
 
 Base = declarative_base()
 
-engine = create_async_engine(
+engine = create_engine(
     DATABASE_URL,
     echo=True,
     pool_pre_ping=True,
 )
 
-async_session = sessionmaker(
-    engine, expire_on_commit=False, class_=AsyncSession,
+Session = sessionmaker(
+    bind=engine,
+    expire_on_commit=False,
+    autocommit=False,
+    autoflush=False,
 )
 
 
-async def init_models():
-    async with engine.begin() as conn:
-        # await conn.run_sync(Base.metadata.drop_all)
-        await conn.run_sync(Base.metadata.create_all)
+def init_models():
+    with engine.begin() as conn:
+        Base.metadata.create_all(bind=conn)
 
 
-async def get_db() -> AsyncSession:
-    async with async_session() as session:
+def get_db() -> Session:
+    with Session() as session:
         yield session

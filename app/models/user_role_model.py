@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Integer, TEXT
 
-from meta import Base
+from .meta import Base
 
 
 class UserRole(Base):

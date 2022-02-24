@@ -20,7 +20,7 @@ def get_settings():
 
 @app.on_event("startup")
 def on_startup():
-    asyncio.run(init_models())
+    init_models()
 
 
 @app.get("/info")

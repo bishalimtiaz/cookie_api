@@ -1,12 +1,10 @@
-from fastapi import APIRouter, Security
+from fastapi import APIRouter
 from fastapi import Depends
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import Session
 
-from app.constants.role import Role
 from app.schemas import user_role_schema
 from app.secuirity.database import get_db
-from app.web.api.api_v1.crud.crud_user_role import CRUDUserROle as crud
+from app.web.api.api_v1.crud import crud_user_role as crud
 
 router = APIRouter(
     prefix='/role',
@@ -15,8 +13,8 @@ router = APIRouter(
 
 
 @router.post('/')
-async def create_user_role(request_user_role: user_role_schema.UserRoleCreate, db: AsyncSession = Depends(get_db)):
-    return await crud.create(db, obj_in=request_user_role)
+def create_user_role(request_user_role: user_role_schema.UserRoleCreate, db: Session = Depends(get_db)):
+    return crud.user_role.create(db=db, obj_in=request_user_role)
 
 # @router.get('/')
 # def get_user_role(
