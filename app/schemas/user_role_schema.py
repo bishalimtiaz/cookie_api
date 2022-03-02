@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 # Shared properties
 class UserRoleBase(BaseModel):
-    title: str
+    name: str
     description: str
 
 

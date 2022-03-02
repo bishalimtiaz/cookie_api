@@ -7,7 +7,7 @@ class UserRole(Base):
     __tablename__ = "user_role"
 
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String(16))
+    name = Column(String(16))
     description = Column(TEXT)
 
     # required in order to access columns with server defaults
