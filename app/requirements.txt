@@ -5,3 +5,4 @@ sqlalchemy[asyncio]~=1.4.31
 python-dotenv~=0.19.2
 passlib~=1.7.4
 aiomysql
+python-jose[cryptography]

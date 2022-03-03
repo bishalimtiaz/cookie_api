@@ -1,30 +1,37 @@
-# from datetime import datetime, timedelta
-# from typing import Optional
+from datetime import datetime, timedelta
+from typing import Optional
 # from fastapi import HTTPException
 # from fastapi.security import SecurityScopes
-# from jose import JWTError, jwt
+from jose import JWTError, jwt
 # from pydantic import ValidationError
 # from sqlalchemy.orm import Session
 # from schemas.authentication_schema import TokenData, EndUserTokenData
 # from mobile.api.api_v1.crud import end_user_repo
-#
-# SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
-# ALGORITHM = "HS256"
-# ACCESS_TOKEN_EXPIRE_MINUTES = 30
-#
-#
-# def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
-#     to_encode = data.copy()
-#     if expires_delta:
-#         expire = datetime.utcnow() + expires_delta
-#         to_encode.update({"exp": expire})
-#     # else:
-#     #     expire = datetime.utcnow() + timedelta(minutes=15)
-#
-#     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-#     return encoded_jwt
-#
-#
+
+SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = 30
+
+'''
+This `create_access_token` will be called when new user is created or user logged in to create session
+'''
+r"""
+ :param expires_delta: sets expiration time of the session. After this time session is expired
+"""
+
+
+def create_access_token(data: dict, expires_delta: Optional[timedelta] = ACCESS_TOKEN_EXPIRE_MINUTES):
+    to_encode = data.copy()
+    if expires_delta:
+        expire = datetime.utcnow() + expires_delta
+        to_encode.update({"exp": expire})
+    # else:
+    #     expire = datetime.utcnow() + timedelta(minutes=15)
+
+    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    return encoded_jwt
+
+
 # def verify_access_token(token: str, credentials_exception, security_scopes: SecurityScopes,
 #                         authenticate_value: str):
 #     try:
