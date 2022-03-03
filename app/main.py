@@ -1,9 +1,8 @@
-import asyncio
-import os
 from functools import lru_cache
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, Depends
+
 from app import api
 from app.config import Settings, ProdSettings, DevSettings
 from app.core.generate import create_roles
@@ -22,7 +21,7 @@ def get_settings():
 @app.on_event("startup")
 async def on_startup():
     await init_models()
-    # await create_roles()
+    await create_roles()
 
 
 @app.get("/info")

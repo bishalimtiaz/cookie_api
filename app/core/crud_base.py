@@ -32,12 +32,17 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
         return db_obj
 
     async def get(self, db: AsyncSession, id: Any) -> Optional[ModelType]:
-        return (await db.execute(select(self.model).where(self.model.id == id))).first()
+        return (await db.execute(select(self.model).where(self.model.id == id))).scalars().first()
 
-    def get_multi(
-            self, db: Session, *, skip: int = 0, limit: int = 100
+    async def get_multi(
+            self, db: AsyncSession
     ) -> List[ModelType]:
-        return db.query(self.model).offset(skip).limit(limit).all()
+        return (await db.execute(select(self.model))).scalars().all()
+
+        # def get_multi(
+    #         self, db: Session, *, skip: int = 0, limit: int = 100
+    # ) -> List[ModelType]:
+    #     return db.query(self.model).offset(skip).limit(limit).all()
 
     def update(
             self,
