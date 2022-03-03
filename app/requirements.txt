@@ -1,7 +1,8 @@
 fastapi~=0.74.0
 uvicorn[standard]
 pydantic~=1.9.0
-SQLAlchemy
+SQLAlchemy~=1.4.31
 python-dotenv~=0.19.2
 passlib~=1.7.4
+python-jose[cryptography]
 mysqlclient
