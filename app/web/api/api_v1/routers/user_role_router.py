@@ -18,6 +18,11 @@ router = APIRouter(
 async def create_user_role(request_user_role: user_role_schema.UserRoleCreate, db: AsyncSession = Depends(get_db)):
     return await crud.user_role.create(db=db, obj_in=request_user_role)
 
+
+@router.get('/{id}')
+async def get_user_role(id: int, db: Session = Depends(get_db)):
+    return await crud.user_role.get(db, id=id)
+
 # @router.get('/')
 # def get_user_role(
 #         db: Session = Depends(get_db),

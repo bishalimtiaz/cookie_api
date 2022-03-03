@@ -22,7 +22,7 @@ def get_settings():
 @app.on_event("startup")
 async def on_startup():
     await init_models()
-    await create_roles()
+    # await create_roles()
 
 
 @app.get("/info")

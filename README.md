@@ -29,11 +29,11 @@ class A(Base):
 ```
 
 Will User SqlAlchemy for relational database. You can Read more from here<br />
-https://docs.sqlalchemy.org/en/14/orm/tutorial.html<br/>
-https://docs.sqlalchemy.org/en/14/dialects/index.html<br/>
-https://docs.sqlalchemy.org/en/14/orm/extensions/asyncio.html#asyncio-install<br/>
-https://docs.sqlalchemy.org/en/14/orm/session_basics.html<br/>
-https://docs.sqlalchemy.org/en/14/core/engines.html<br/>
+https://docs.sqlalchemy.org/en/14/orm/tutorial.html <br/>
+https://docs.sqlalchemy.org/en/14/dialects/index.html <br/>
+https://docs.sqlalchemy.org/en/14/orm/extensions/asyncio.html#asyncio-install <br/>
+https://docs.sqlalchemy.org/en/14/orm/session_basics.html <br/>
+https://docs.sqlalchemy.org/en/14/core/engines.html <br/>
 
 ## Library Documentation
 * passlib: Passlib is a password hashing library <br/> https://passlib.readthedocs.io/en/stable/
