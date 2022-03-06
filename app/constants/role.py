@@ -22,5 +22,3 @@ class Role:
         "name": "END_USER",
         "description": "End Users of Application Ecosystem"
     }
-
-

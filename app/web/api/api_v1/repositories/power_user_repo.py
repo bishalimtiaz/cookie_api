@@ -8,3 +8,7 @@ from app.secuirity.hashing import Hash
 def create_power_user(db: Session, power_user: PowerUserCreate):
     power_user.password = Hash.encrypt(power_user.password)
     return crud.power_user.create(db, obj_in=power_user)
+
+
+def fetch_power_user(id, db: Session):
+    return crud.power_user.get(db, id=id)
