@@ -15,6 +15,6 @@ class PowerUser(Base):
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.datetime.utcnow())
     updated_at = Column(DateTime, default=datetime.datetime.utcnow(), onupdate=datetime.datetime.utcnow())
-    roles = relationship("PowerUserPermission", back_populates="user_permission", uselist=False)
+    roles = relationship("PowerUserPermission", uselist=False)
 
     __mapper_args__ = {"eager_defaults": True}

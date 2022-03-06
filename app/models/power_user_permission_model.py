@@ -11,6 +11,5 @@ class PowerUserPermission(Base):
     power_user_id = Column(Integer, ForeignKey('power_user.id'))
     user_role_id = Column(Integer, ForeignKey('user_role.id'))
     user_role = relationship("UserRole")
-    user_permission = relationship("PowerUser", back_populates="roles")
 
     __mapper_args__ = {"eager_defaults": True}
