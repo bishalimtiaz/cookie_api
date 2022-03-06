@@ -1,6 +1,6 @@
 from pydantic import BaseModel
-import power_user_schema
-import user_role_schema
+
+from app.schemas import user_role_schema, power_user_schema
 
 
 class PowerUserPermissionBase(BaseModel):
@@ -9,6 +9,10 @@ class PowerUserPermissionBase(BaseModel):
 
 
 class PowerUserPermissionCreate(PowerUserPermissionBase):
+    pass
+
+
+class PowerUserPermissionUpdate(PowerUserPermissionBase):
     pass
 
 
