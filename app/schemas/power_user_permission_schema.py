@@ -1,3 +1,5 @@
+from typing import List
+
 from pydantic import BaseModel
 
 from app.schemas import user_role_schema, power_user_schema
@@ -5,11 +7,10 @@ from app.schemas import user_role_schema, power_user_schema
 
 class PowerUserPermissionBase(BaseModel):
     power_user_id: int
-    user_role_id: int
 
 
 class PowerUserPermissionCreate(PowerUserPermissionBase):
-    pass
+    user_role_ids: List[int]
 
 
 class PowerUserPermissionUpdate(PowerUserPermissionBase):
