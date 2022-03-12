@@ -3,8 +3,8 @@ from sqlalchemy import Column, String, Integer, TEXT
 from .meta import Base
 
 
-class UserRole(Base):
-    __tablename__ = "user_role"
+class Roles(Base):
+    __tablename__ = "roles"
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     name = Column(String(16))
     description = Column(TEXT)
