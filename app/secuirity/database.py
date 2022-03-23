@@ -2,7 +2,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-DATABASE_URL = 'mysql+mysqldb://root:root@127.0.0.1:3306/cookie_db'
+from app.config import get_settings
 
 '''
 The `echo` flag is a shortcut to setting up SQLAlchemy logging, 
@@ -24,9 +24,10 @@ The new base class will be given a metaclass that produces
     of the class.'''
 
 Base = declarative_base()
+DB = get_settings().db
 
 engine = create_engine(
-    DATABASE_URL,
+    DB,
     echo=True,
     pool_pre_ping=True,
 )
