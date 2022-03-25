@@ -40,10 +40,10 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, UpdateSchemaType]):
     ) -> List[ModelType]:
         return db.query(self.model).all()
 
-    # def get_multi(
-    #         self, db: Session, *, skip: int = 0, limit: int = 100
-    # ) -> List[ModelType]:
-    #     return db.query(self.model).offset(skip).limit(limit).all()
+    def get_multi_pagging(
+            self, db: Session,*, item_per_page: int, page_num: int
+    ) -> List[ModelType]:
+        return db.query(self.model).offset((page_num-1)*item_per_page).limit(item_per_page).all()
 
     def update(
             self,
