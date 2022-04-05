@@ -8,18 +8,19 @@ from app.schemas.vitamins_schema import Vitamins
 class FoodBase(BaseModel):
     name: str
     quantity: float
-    fat: float
-    protein: float
-    carb: float
-    fiber: float
-    netCarb: float
+    # fat: float
+    # protein: float
+    # carb: float
+    # fiber: float
+    # netCarb: float
     calories: float
     units: Units
-    vitamins: Vitamins
-    minerals: Minerals
+    # vitamins: Vitamins
+    # minerals: Minerals
 
 
 class Food(FoodBase):
+    id: int
     pass
 
     class Config:

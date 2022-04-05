@@ -28,3 +28,13 @@ def get_foods_pagging(
 
 ):
     return repo.get_foods_pagging(db=db, item_per_page=item_per_page, page_num=page_num)
+
+
+@router.get('/search/{keyword}', response_model=List[Food])
+def search_foods(
+        keyword: str,
+        item_per_page: int,
+        page_num: int,
+        db: Session = Depends(get_db),
+):
+    return repo.search_food(db=db, keyword=keyword, item_per_page=item_per_page, page_num=page_num)
