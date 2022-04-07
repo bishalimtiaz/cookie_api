@@ -3,8 +3,8 @@ from sqlalchemy import Column, String, Integer
 from .meta import Base
 
 
-class Units(Base):
-    __tablename__ = "units"
+class Unit(Base):
+    __tablename__ = "unit"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     unit_name = Column(String(16))

@@ -1,6 +1,6 @@
 import pandas as pd
 
-from app.models.units_model import Units
+from app.models.unit_model import Unit
 from app.models.minerals_model import Minerals
 from app.models.vitamins_model import Vitamins
 from app.models.food_model import Food
@@ -11,7 +11,7 @@ df = pd.read_csv('app/files/food_data.csv', delimiter=',', encoding='unicode_esc
 food_list = []
 
 for i in range(df.shape[0]):
-    units = Units(unit_name=df.iloc[i, :]['Unit'])
+    unit = Unit(unit_name=df.iloc[i, :]['Unit'])
 
     minerals = Minerals(
         calciumMg=df.iloc[i, :]['Calcium mg'],
@@ -53,7 +53,7 @@ for i in range(df.shape[0]):
         fiber=df.iloc[i, :]['Fiber'],
         netCarb=df.iloc[i, :]['Net Carb'],
         calories=df.iloc[i, :]['Calories'],
-        units=units,
+        unit=unit,
         vitamins=vitamins,
         minerals=minerals
     )

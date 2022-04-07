@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 from app.schemas.minerals_schema import Minerals
-from app.schemas.units_schema import Units
+from app.schemas.unit_schema import Unit
 from app.schemas.vitamins_schema import Vitamins
 
 
@@ -14,7 +14,7 @@ class FoodBase(BaseModel):
     # fiber: float
     # netCarb: float
     calories: float
-    units: Units
+    unit: Unit
     # vitamins: Vitamins
     # minerals: Minerals
 

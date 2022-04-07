@@ -1,22 +1,22 @@
 from pydantic import BaseModel
 
 
-class UnitsBase(BaseModel):
+class UnitBase(BaseModel):
     unit_name: str
     unit_symbol: str = None
     unit_category: str = None
 
 
-class Units(UnitsBase):
+class Unit(UnitBase):
     pass
 
     class Config:
         orm_mode = True
 
 
-class UnitsCreate(UnitsBase):
+class UnitCreate(UnitBase):
     pass
 
 
-class UnitsUpdate(UnitsBase):
+class UnitUpdate(UnitBase):
     pass
