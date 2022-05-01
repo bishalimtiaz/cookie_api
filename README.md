@@ -2,13 +2,15 @@
 Fast API Startup Template
 
 ### upgrade pip
-`python -m pip install --upgrade pip`
+`python -m pip install --upgrade pip` if you want to upgrade the pip version for your project
 
 ### Run Project
-Use bash command
+Use bash command from root directory
 
-`ENV=dev uvicorn app.main:app` to start dev environment <br />
+`ENV=dev uvicorn app.main:app` to start dev environment or `uvicorn app.main:app`  that will start dev environment<br />
 `ENV=prod uvicorn app.main:app` to start prod environment <br />
+
+Then go to app directory and run `python create_food_data.py`. It will create food data from excel file. This command must run once and if it is run multiple time it will create multiple Entry.
 
 ## Development Instruction
 To create new table create `a_model.py` inside `models` package. Then create a class that will define a `Table` inside db.
